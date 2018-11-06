@@ -10,5 +10,5 @@ package wheelspagos;
  * @author nikyr
  */
 public interface IPagos {
-    
+    int cosa = 0;
 }
