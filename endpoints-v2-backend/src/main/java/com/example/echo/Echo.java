@@ -50,7 +50,7 @@ public class Echo {
 	Proxy proxy = Proxy.rConstructora();
 	
 	public Echo() {
-		proxy.crearPasajero("mate.balles", "12345", "Julian", "Ballesteros", 21,"9876542234");
+		proxy.crearPasajero("mate.balles", "12345", "Julian", "Ballesteros", 21,"982234");
 	}
 	
 	/**
