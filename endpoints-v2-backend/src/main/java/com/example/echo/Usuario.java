@@ -2,64 +2,142 @@ package com.example.echo;
 
 public abstract class Usuario implements IUsuario {
 
-	
-	 private String Correo;
-	    private String Pass;
-	    private String nombre;
-	    private String apellido;
-	    private int edad;
-	    private String id;
+//	abstract public void crearUsuario(String nombre, String correo, String contrasena, String edad, String tipo, String id);
+	abstract public void modificarUsuario(String correo, String nombre);
 
-	    abstract public void adicionar(String correo, String password, String nombre, String apellido, int edad,String id);
+	private String nombre;
+	private String id;
+	private String contrasena;
+	private String edad;
+	private String correo;
+	private String tipo;
 
-	    abstract public void modificar(String password, String nombre, String apellido, int edad);
+	public void crearUsuario(String nombre, String correo, String contrasena, String edad, String tipo, String id) {
+		this.setNombre(nombre);
+		this.setCorreo(correo);
+		this.setContrasena(contrasena);
+		this.setEdad(edad);
+		this.setTipo(tipo);
+		this.setId(id);
+	}
 
-		public String getCorreo() {
-			return Correo;
-		}
+	@Override
+	public String getTipo() {
+		return tipo;
+	}
 
-		public void setCorreo(String correo) {
-			Correo = correo;
-		}
+	@Override
+	public String getId() {
+		return id;
+	}
 
-		public String getPass() {
-			return Pass;
-		}
+	@Override
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
-		public void setPass(String pass) {
-			Pass = pass;
-		}
+	@Override
+	public String getNombre() {
+		return nombre;
+	}
 
-		public String getNombre() {
-			return nombre;
-		}
+	@Override
+	public String getContrasena() {
+		return contrasena;
+	}
 
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
+	@Override
+	public String getEdad() {
+		return edad;
+	}
 
-		public String getApellido() {
-			return apellido;
-		}
+	@Override
+	public String getCorreo() {
+		return correo;
+	}
 
-		public void setApellido(String apellido) {
-			this.apellido = apellido;
-		}
+	@Override
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-		public int getEdad() {
-			return edad;
-		}
+	@Override
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
 
-		public void setEdad(int edad) {
-			this.edad = edad;
-		}
+	@Override
+	public void setEdad(String edad) {
+		this.edad = edad;
+	}
 
-		public String getId() {
-			return id;
-		}
+	@Override
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
 
-		public void setId(String id) {
-			this.id = id;
-		}
+	@Override
+	public void setId(String id) {
+		this.id = id;
+	}
+
+//	 private String Correo;
+//	    private String Pass;
+//	    private String nombre;
+//	    private String apellido;
+//	    private String edad;
+//	    private String id;
+//
+//	    abstract public void adicionar(String correo, String password, String nombre, String apellido, int edad,String id);
+//
+//	    abstract public void modificar(String password, String nombre, String apellido, int edad);
+//
+//		public String getCorreo() {
+//			return Correo;
+//		}
+//
+//		public void setCorreo(String correo) {
+//			Correo = correo;
+//		}
+//
+//		public String getPass() {
+//			return Pass;
+//		}
+//
+//		public void setPass(String pass) {
+//			Pass = pass;
+//		}
+//
+//		public String getNombre() {
+//			return nombre;
+//		}
+//
+//		public void setNombre(String nombre) {
+//			this.nombre = nombre;
+//		}
+//
+//		public String getApellido() {
+//			return apellido;
+//		}
+//
+//		public void setApellido(String apellido) {
+//			this.apellido = apellido;
+//		}
+//
+//		public String getEdad() {
+//			return edad;
+//		}
+//
+//		public void setEdad(String edad) {
+//			this.edad = edad;
+//		}
+//
+//		public String getId() {
+//			return id;
+//		}
+//
+//		public void setId(String id) {
+//			this.id = id;
+//		}
 
 }

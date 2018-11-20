@@ -35,37 +35,27 @@ import com.google.api.server.spi.response.UnauthorizedException;
  * The Echo API which Endpoints will be exposing.
  */
 // [START echo_api_annotation]
+
 @Api(name = "proxy", version = "v3", namespace = @ApiNamespace(ownerDomain = "wheels.endpoints.com", ownerName = "wheels.endpoints.com", packagePath = ""),
-		// [START_EXCLUDE]
-		issuers = {
-				@ApiIssuer(name = "firebase", issuer = "https://securetoken.google.com/YOUR-PROJECT-ID", jwksUri = "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system"
-						+ ".gserviceaccount.com") }
-// [END_EXCLUDE]
+// [START_EXCLUDE]
+issuers = {
+		@ApiIssuer(name = "firebase", issuer = "https://securetoken.google.com/YOUR-PROJECT-ID", jwksUri = "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system"
+				+ ".gserviceaccount.com") }
+
 )
 // [END echo_api_annotation]
 
 public class Echo {
-
-	Facade facade = Facade.rConstructora();
-	Proxy proxy = Proxy.rConstructora();
+	
+	
+	Facade facade;
+	Proxy proxy = Proxy.reemplazarConstructora();
 	
 	public Echo() {
-		proxy.crearPasajero("mate.balles", "12345", "Julian", "Ballesteros", 21,"982");
+		proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "Pasajero" ,"1075");
 	}
 	
-	/**
-	 * Echoes the received message back. If n is a non-negative integer, the message
-	 * is copied that many times in the returned message.
-	 *
-	 * <p>
-	 * Note that name is specified and will override the default name of "{class
-	 * name}.{method name}". For example, the default is "echo.echo".
-	 *
-	 * <p>
-	 * Note that httpMethod is not specified. This will default to a reasonable HTTP
-	 * method depending on the API method name. In this case, the HTTP method will
-	 * default to POST.
-	 */
+
 	// [START echo_method]
 	@ApiMethod(name = "echo")
 	public Message echo(Message message, @Named("n") @Nullable Integer n) {
@@ -74,34 +64,54 @@ public class Echo {
 	// [END echo_method]
 //Test
 
-	@ApiMethod(name = "Auth")
-	public Session auth(Login log) {
-		return proxy.auth(log.getUser(), log.getPassword());
+	@ApiMethod(name = "Iniciar Sesion")
+	public SesionUsuario auth(Login log) {
+		return proxy.iniciarSesion(log.getUser(), log.getPassword());
 	}
 
 	@ApiMethod(name = "PagoEfectivo")
-	public IPago test(@Named ("session") long sesion,Pago pago) {
+	public IPagos test(@Named ("session") long sesion,Pagos pago) {
 		return facade.pagoEfectivo(sesion,pago);
 	}
-	@ApiMethod(name = "ListPagos")
-	public ArrayList<IPago> listPagos(@Named ("session") long sesion,@Named ("ID") String id ) {
+	@ApiMethod(name = "Listar Pagos")
+	public String listPagos(@Named ("session") long sesion,@Named ("ID") String id ) {
 		return facade.listarPagos(id,sesion);
 	}
 
+	
+//	
+//	
+//	Facade facade = Facade.rConstructora();
+//	Proxy proxy = Proxy.rConstructora();
+//	
+//	public Echo() {
+//		proxy.crearPasajero("mate.balles", "12345", "Julian", "Ballesteros", 21,"982");
+//	}
+//	
+//
+//	// [START echo_method]
+//	@ApiMethod(name = "echo")
+//	public Message echo(Message message, @Named("n") @Nullable Integer n) {
+//		return doEcho(message, n);
+//	}
+//	// [END echo_method]
+////Test
+//
+//	@ApiMethod(name = "Auth")
+//	public SesionUsuario auth(Login log) {
+//		return proxy.auth(log.getUser(), log.getPassword());
+//	}
+//
+//	@ApiMethod(name = "PagoEfectivo")
+//	public IPago test(@Named ("session") long sesion,Pagos pago) {
+//		return facade.pagoEfectivo(sesion,pago);
+//	}
+//	@ApiMethod(name = "ListPagos")
+//	public ArrayList<IPago> listPagos(@Named ("session") long sesion,@Named ("ID") String id ) {
+//		return facade.listarPagos(id,sesion);
+//	}
 
-	/**
-	 * Echoes the received message back. If n is a non-negative integer, the message
-	 * is copied that many times in the returned message.
-	 *
-	 * <p>
-	 * Note that name is specified and will override the default name of "{class
-	 * name}.{method name}". For example, the default is "echo.echo".
-	 *
-	 * <p>
-	 * Note that httpMethod is not specified. This will default to a reasonable HTTP
-	 * method depending on the API method name. In this case, the HTTP method will
-	 * default to POST.
-	 */
+
 	// [START echo_path]
 	@ApiMethod(name = "echo_path_parameter", path = "echo/{n}")
 	public Message echoPathParameter(Message message, @Named("n") int n) {
@@ -109,19 +119,7 @@ public class Echo {
 	}
 	// [END echo_path]
 
-	/**
-	 * Echoes the received message back. If n is a non-negative integer, the message
-	 * is copied that many times in the returned message.
-	 *
-	 * <p>
-	 * Note that name is specified and will override the default name of "{class
-	 * name}.{method name}". For example, the default is "echo.echo".
-	 *
-	 * <p>
-	 * Note that httpMethod is not specified. This will default to a reasonable HTTP
-	 * method depending on the API method name. In this case, the HTTP method will
-	 * default to POST.
-	 */
+
 	// [START echo_api_key]
 	@ApiMethod(name = "echo_api_key", path = "echo_api_key", apiKeyRequired = AnnotationBoolean.TRUE)
 	public Message echoApiKey(Message message, @Named("n") @Nullable Integer n) {
@@ -143,19 +141,7 @@ public class Echo {
 		return message;
 	}
 
-	/**
-	 * Gets the authenticated user's email. If the user is not authenticated, this
-	 * will return an HTTP 401.
-	 *
-	 * <p>
-	 * Note that name is not specified. This will default to "{class name}.{method
-	 * name}". For example, the default is "echo.getUserEmail".
-	 *
-	 * <p>
-	 * Note that httpMethod is not required here. Without httpMethod, this will
-	 * default to GET due to the API method name. httpMethod is added here for
-	 * example purposes.
-	 */
+
 	// [START google_id_token_auth]
 	@ApiMethod(httpMethod = ApiMethod.HttpMethod.GET, authenticators = { EspAuthenticator.class }, audiences = {
 			"YOUR_OAUTH_CLIENT_ID" }, clientIds = { "YOUR_OAUTH_CLIENT_ID" })
@@ -170,19 +156,8 @@ public class Echo {
 	}
 	// [END google_id_token_auth]
 
-	/**
-	 * Gets the authenticated user's email. If the user is not authenticated, this
-	 * will return an HTTP 401.
-	 *
-	 * <p>
-	 * Note that name is not specified. This will default to "{class name}.{method
-	 * name}". For example, the default is "echo.getUserEmail".
-	 *
-	 * <p>
-	 * Note that httpMethod is not required here. Without httpMethod, this will
-	 * default to GET due to the API method name. httpMethod is added here for
-	 * example purposes.
-	 */
+
+
 	// [START firebase_auth]
 	@ApiMethod(path = "firebase_user", httpMethod = ApiMethod.HttpMethod.GET, authenticators = {
 			EspAuthenticator.class }, issuerAudiences = {

@@ -5,59 +5,96 @@ import java.util.ArrayList;
 public class Facade {
 
 	
-	private ArrayList<Long> Sesiones = new ArrayList();
-	private ArrayList<IPago> pagos = new ArrayList();
-	
-	private static Facade instanciaUnica = null;
+	private ArrayList<Long> sesiones = new ArrayList();
+	private ArrayList<IPagos> pagos = new ArrayList();
 	
 	
-	public static Facade rConstructora() {
-        if (instanciaUnica == null) {
-            instanciaUnica = new Facade();
-        }
-        return instanciaUnica;
-    }
 	
-	
-	public void guardarSesion(Session session) {
-		Sesiones.add(session.getSession());
+
+	public void adicionarSesion(SesionUsuario s) {
+		sesiones.add(s.getSesion());
 	}
 	
-	public IPago pagoEfectivo (long session,Pago pago) {
-		Pago pag = (Pago) pago; 
-		for (long ses:Sesiones) {
-			if(session==ses) {
-				pagos.add(pago);
+	
+	
+	public IPagos pagoEfectivo (long sesion,Pagos pago) {
+		Pagos p= pago;
+		for (int i=0; i<sesiones.size();i++) {
+			if (sesion==sesiones.get(i)) {
+				pagos.add(p);
+				System.out.println("Pago realizado");
 				return pago;
 			}
 		}
 		return null;
 	}
-
-
-	public ArrayList<IPago> listarPagos(String id,long sesion) {
-		System.out.println("lista");
-		ArrayList<IPago> lista = new ArrayList();
-		for (long ses:Sesiones) {
-			if(sesion==ses) {
-				for(IPago pago:pagos) {
-					if(pago.getUsuarioPaga().equals(id)) {
-						lista.add(pago);
-					}
+	
+	
+	public IPagos pagoConTarjeta(long sesion,Pagos pago) {
+		
+		
+		
+		return null;
+	}
+	
+	
+	public String listarPagos(String id, long sesion) {
+		String lista = "";
+		for (int i=0; i <sesiones.size(); i++) {
+			if (sesiones.get(i)==sesion) {
+				for(int k=0; k <pagos.size(); k++) {
+					lista = lista + "Valor" + pagos.get(i).getValor() 
+							+ "\n" + "Id Conductor:" + pagos.get(i).getIdConductor() 
+							+ "\n" + "Id Pasajero:" + pagos.get(i).getIdPasajero() 
+							+ "\n" + "Tipo pago:" + pagos.get(i).getTipoPago();
 				}
-				return lista;
 			}
 		}
-		return null;
+		
+		return lista;
+
 	}
 
+		
 
-	public ArrayList<IPago> listarTPagos(long sesion) {
-		for (long ses:Sesiones) {
-			if(sesion==ses) {
-				return pagos;
-			}
-		}
-		return null;
-	}
+
+	
+	
+//	public IPago pagoEfectivo (long session,Pagos pago) {
+//		Pagos pag = (Pagos) pago; 
+//		for (long ses:Sesiones) {
+//			if(session==ses) {
+//				pagos.add(pago);
+//				return pago;
+//			}
+//		}
+//		return null;
+//	}
+//
+//
+//	public ArrayList<IPago> listarPagos(String id,long sesion) {
+//		System.out.println("lista");
+//		ArrayList<IPago> lista = new ArrayList();
+//		for (long ses:Sesiones) {
+//			if(sesion==ses) {
+//				for(IPago pago:pagos) {
+//					if(pago.getUsuarioPaga().equals(id)) {
+//						lista.add(pago);
+//					}
+//				}
+//				return lista;
+//			}
+//		}
+//		return null;
+//	}
+//
+//
+//	public ArrayList<IPago> listarTPagos(long sesion) {
+//		for (long ses:Sesiones) {
+//			if(sesion==ses) {
+//				return pagos;
+//			}
+//		}
+//		return null;
+//	}
 }
