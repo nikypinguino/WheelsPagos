@@ -36,7 +36,7 @@ import com.google.api.server.spi.response.UnauthorizedException;
  */
 // [START echo_api_annotation]
 
-@Api(name = "proxy", version = "v3", namespace = @ApiNamespace(ownerDomain = "wheels.endpoints.com", ownerName = "wheels.endpoints.com", packagePath = ""),
+@Api(name = "proxy", version = "v1", namespace = @ApiNamespace(ownerDomain = "wheels.endpoints.com", ownerName = "wheels.endpoints.com", packagePath = ""),
 // [START_EXCLUDE]
 issuers = {
 		@ApiIssuer(name = "firebase", issuer = "https://securetoken.google.com/YOUR-PROJECT-ID", jwksUri = "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system"
