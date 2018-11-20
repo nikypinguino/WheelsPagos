@@ -7,8 +7,8 @@ public class Pagos implements IPagos {
 	String idPasajero;
 	String fecha;
 	String hora;
-	String confirmacion;
 	String tipoPago;
+
 
 	public void asignarAtributos(String todo) {
 		String atb[] = todo.split("-");
@@ -17,8 +17,7 @@ public class Pagos implements IPagos {
 		idPasajero = atb[2];
 		fecha = atb[3];
 		hora = atb[4];
-		confirmacion = atb[5];
-		tipoPago = atb[6];
+		tipoPago = atb[5];
 	}
 	
 	
@@ -49,13 +48,6 @@ public class Pagos implements IPagos {
         this.hora = hora;
     }
 
-    public String getConfirmacion() {
-        return confirmacion;
-    }
-
-    public void setConfirmacion(String confirmacion) {
-        this.confirmacion = confirmacion;
-    }
 
     public String getTipoPago() {
         return tipoPago;

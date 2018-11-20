@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 public class Facade {
 
+	private static Facade unicaInstancia;
+	private ArrayList<Long> sesiones = new ArrayList<Long>();
+	private ArrayList<IPagos> pagos = new ArrayList<IPagos>();
 	
-	private ArrayList<Long> sesiones = new ArrayList();
-	private ArrayList<IPagos> pagos = new ArrayList();
 	
-	
+	public static Facade reemplazarConstructora() {
+		if (unicaInstancia == null)
+			unicaInstancia = new Facade();
+		return unicaInstancia;
+	}
 	
 
 	public void adicionarSesion(SesionUsuario s) {
@@ -30,33 +35,51 @@ public class Facade {
 	}
 	
 	
-	public IPagos pagoConTarjeta(long sesion,Pagos pago) {
-		
-		
-		
+	public IPagos pagoConTarjeta(long sesion,PagosPSEConTarjeta pago) {
+		PagosPSEConTarjeta p= pago;
+		for (int i=0; i<sesiones.size();i++) {
+			if (sesion==sesiones.get(i)) {
+				pagos.add(p);
+				System.out.println("Pago realizado");
+				return pago;
+			}
+		}
 		return null;
+		
+	}
+	
+	public IPagos pagoCuentaBancaria(long sesion,PagosPSECuentaBancaria pago) {
+		PagosPSECuentaBancaria p= pago;
+		for (int i=0; i<sesiones.size();i++) {
+			if (sesion==sesiones.get(i)) {
+				pagos.add(p);
+				System.out.println("Pago realizado");
+				return pago;
+			}
+		}
+		return null;
+		
 	}
 	
 	
-	public String listarPagos(String id, long sesion) {
-		String lista = "";
+	public ArrayList<IPagos> listarPagos(String id, long sesion) {
+		ArrayList<IPagos> lista = new ArrayList<IPagos>();
 		for (int i=0; i <sesiones.size(); i++) {
 			if (sesiones.get(i)==sesion) {
 				for(int k=0; k <pagos.size(); k++) {
-					lista = lista + "Valor" + pagos.get(i).getValor() 
-							+ "\n" + "Id Conductor:" + pagos.get(i).getIdConductor() 
-							+ "\n" + "Id Pasajero:" + pagos.get(i).getIdPasajero() 
-							+ "\n" + "Tipo pago:" + pagos.get(i).getTipoPago();
+					if(pagos.get(k).getIdPasajero().equals(id)) {
+						lista.add(pagos.get(k));
+					}
 				}
+				return lista;
 			}
 		}
 		
-		return lista;
+		return null;
 
 	}
 
 		
-
 
 	
 	

@@ -8,8 +8,8 @@ public interface IProxy {
 
 //	public SesionUsuario test(long sesion);
 
-	public void crearPasajero(String nombre, String correo, String contrasena, String edad, String tipo, String id);
+	public void crearPasajero(String nombre, String correo, String contrasena, String edad, String id);
 	
-	public void crearConductor(String nombre, String correo, String contrasena, String edad, String tipo, String id);
+	public void crearConductor(String nombre, String correo, String contrasena, String edad, String id);
 
 }

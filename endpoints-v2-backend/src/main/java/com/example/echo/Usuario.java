@@ -10,31 +10,22 @@ public abstract class Usuario implements IUsuario {
 	private String contrasena;
 	private String edad;
 	private String correo;
-	private String tipo;
 
-	public void crearUsuario(String nombre, String correo, String contrasena, String edad, String tipo, String id) {
+	public void crearUsuario(String nombre, String correo, String contrasena, String edad, String id) {
 		this.setNombre(nombre);
 		this.setCorreo(correo);
 		this.setContrasena(contrasena);
 		this.setEdad(edad);
-		this.setTipo(tipo);
 		this.setId(id);
 	}
 
-	@Override
-	public String getTipo() {
-		return tipo;
-	}
 
 	@Override
 	public String getId() {
 		return id;
 	}
 
-	@Override
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+
 
 	@Override
 	public String getNombre() {

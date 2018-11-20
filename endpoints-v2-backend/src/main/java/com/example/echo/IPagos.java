@@ -16,11 +16,11 @@ public interface IPagos {
 
 	public String getTipoPago();
 
-	public String getConfirmacion();
+//	public String getConfirmacion();
 
 	public void setHora(String hora);
 
-	public void setConfirmacion(String confirmacion);
+//	public void setConfirmacion(String confirmacion);
 
 	public void setTipoPago(String tipoPago);
 

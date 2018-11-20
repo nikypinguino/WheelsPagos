@@ -7,8 +7,9 @@ import java.util.Random;
 public class Proxy implements IProxy {
 	
 
+	
 	private static Proxy unicaInstancia;
-	private Facade facade;
+	private Facade facade= Facade.reemplazarConstructora();
 	protected ArrayList<IUsuario> usuarios = new ArrayList<IUsuario>();
 
 	public static Proxy reemplazarConstructora() {
@@ -22,10 +23,10 @@ public class Proxy implements IProxy {
 		
 		int aux=0;
 		for (int i = 0; i < usuarios.size(); i++) {
-			aux=+1;
+			
 			if(usuarios.get(i).getCorreo().equalsIgnoreCase(correo) &&
 					usuarios.get(i).getContrasena().equalsIgnoreCase(contrasena)){
-				
+				aux++;
 				SesionUsuario s= new SesionUsuario();
 				s.setSesion(aux);
 				s.setId(usuarios.get(i).getId());
@@ -51,17 +52,23 @@ public class Proxy implements IProxy {
 //	
 
 	@Override
-	public void crearPasajero(String nombre, String correo, String contrasena, String edad, String tipo, String id){
+	public void crearPasajero(String nombre, String correo, String contrasena, String edad, String id){
 		IUsuario usuario = new Pasajero();
-		usuario.crearUsuario(nombre, correo, contrasena, edad, tipo, id);
+//		usuario.setNombre(nombre);
+//		usuario.setCorreo(correo);
+//		usuario.setContrasena(contrasena);
+//		usuario.setEdad(edad);
+//		usuario.setId(id);
+//		usuarios.add(usuario);
+		usuario.crearUsuario(nombre, correo, contrasena, edad, id);
 		usuarios.add(usuario);
 	}
 	
 
 	@Override
-	public void crearConductor(String nombre, String correo, String contrasena, String edad, String tipo, String id){
+	public void crearConductor(String nombre, String correo, String contrasena, String edad, String id){
 		IUsuario usuario = new Conductor();
-		usuario.crearUsuario(nombre, correo, contrasena, edad, tipo, id);
+		usuario.crearUsuario(nombre, correo, contrasena, edad, id);
 		usuarios.add(usuario);
 	}
 

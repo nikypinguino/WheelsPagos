@@ -2,23 +2,23 @@ package com.example.echo;
 
 public class Login {
 
-	private String User;
-	private String Password;
+	private String correo;
+	private String contrasena;
 
-	public String getUser() {
-		return User;
+	public String getCorreo() {
+		return correo;
 	}
 
-	public void setUser(String correo) {
-		this.User = correo;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
-	public String getPassword() {
-		return Password;
+	public String getContraseña() {
+		return contrasena;
 	}
 
-	public void setPassword(String contra) {
-		this.Password = contra;
+	public void setContraseña(String contra) {
+		this.contrasena= contra;
 	}
 
 }
