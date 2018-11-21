@@ -64,8 +64,7 @@ class ProxyTest {
 		String pagos= facade.listarPagos("456", nuevasesion.getSesion()).get(0).getIdPasajero();
 	
 		assertEquals(pagos, pagoTarjeta.getIdPasajero());
-			
-		
+				
 	}
 
 	
