@@ -9,7 +9,14 @@ import java.util.ArrayList;
 //import org.junit.Test;
 
 class ProxyTest {
-
+	
+	@Test
+	void crearConductor() {
+		Proxy proxy = Proxy.reemplazarConstructora();
+		IUsuario us = proxy.crearConductor("nicole", "nickypinguino", "123", "20", "789");
+		assertTrue(us.getCorreo().equals("nickypinguino"));
+	}
+	
 	@Test
 	void testIniciarSesion() {
 

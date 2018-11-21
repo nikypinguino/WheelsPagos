@@ -2,14 +2,6 @@ package com.example.echo;
 
 public abstract class Usuario implements IUsuario {
 	
-	//hola ya llegue yo
-	//hola esta es una prueba mil
-	//help funcionaaaaaaaaaaaaa
-	
-	
-	
-	//pleaseeeeeeeeeeeeeee
-
 //	abstract public void crearUsuario(String nombre, String correo, String contrasena, String edad, String tipo, String id);
 	abstract public void modificarUsuario(String correo, String nombre);
 

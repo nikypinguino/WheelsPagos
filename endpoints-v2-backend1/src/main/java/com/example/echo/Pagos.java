@@ -8,6 +8,7 @@ public class Pagos implements IPagos {
 	String fecha;
 	String hora;
 	String tipoPago;
+	String metodoDePago;
 
 
 	public void asignarAtributos(String todo) {
