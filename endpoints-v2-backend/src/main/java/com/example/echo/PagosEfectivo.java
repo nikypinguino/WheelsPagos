@@ -1,6 +1,6 @@
 package com.example.echo;
 
-public class PagosEfectivo extends PagosPSE{
+public class PagosEfectivo extends Pagos{
 	
 	String moneda;
 

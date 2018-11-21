@@ -12,9 +12,9 @@ public class PagosPSEConTarjeta extends PagosPSE {
 	String fechaExpiracion;
 	String codigoSeguridad;
 
-	public PagosPSEConTarjeta() {
-		super();
-	}
+//	public PagosPSEConTarjeta() {
+//		super();
+//	}
 
 	public void asignarAtributos(String todo) {
 		String atb[] = todo.split("-");
@@ -22,7 +22,7 @@ public class PagosPSEConTarjeta extends PagosPSE {
 		this.setEntidad(atb[1]);
 		this.setFechaExpiracion(atb[2]);
 		this.setCodigoSeguridad(atb[3]);
-		super.asignarAtributos(atb[0]);
+//		super.asignarAtributos(atb[0]);
 	}
 
 	public void setNumTarjeta(String numTarjeta) {

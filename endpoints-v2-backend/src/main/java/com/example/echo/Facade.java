@@ -22,8 +22,8 @@ public class Facade {
 	
 	
 	
-	public IPagos pagoEfectivo (long sesion,PagosEfectivo pago) {
-		PagosEfectivo p= pago;
+	public IPagos pagoEfectivo (long sesion,IPagos pago) {
+	IPagos p= pago;
 		for (int i=0; i<sesiones.size();i++) {
 			if (sesion==sesiones.get(i)) {
 				pagos.add(p);
@@ -35,8 +35,8 @@ public class Facade {
 	}
 	
 	
-	public IPagos pagoConTarjeta(long sesion,PagosPSEConTarjeta pago) {
-		PagosPSEConTarjeta p= pago;
+	public IPagos pagoConTarjeta(long sesion,PagosPSE pago) {
+		PagosPSE p= pago;
 		for (int i=0; i<sesiones.size();i++) {
 			if (sesion==sesiones.get(i)) {
 				pagos.add(p);

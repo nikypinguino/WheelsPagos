@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 class ProxyTest {
 
+
 	@Test
 	void testIniciarSesion() {
 
@@ -22,21 +23,35 @@ class ProxyTest {
 	@Test
 	void testPagoEfectivo(){
 		Proxy proxy = Proxy.reemplazarConstructora();
-		proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "456");
-		SesionUsuario nuevasesion = proxy.iniciarSesion("gabrielaloos", "123");
+		IUsuario us = proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "456");
+		SesionUsuario nuevasesion = proxy.iniciarSesion(us.getCorreo(), us.getContrasena());
 		Facade facade = Facade.reemplazarConstructora();
-		PagosEfectivo p= new PagosEfectivo();
+		IPagos p= new PagosEfectivo();
+		p.asignarAtributos("100-789-456-2018-5-multa");
 		IPagos pagoEfectivo = facade.pagoEfectivo(nuevasesion.getSesion(), p);
 		assertEquals(pagoEfectivo.getIdPasajero(), nuevasesion.getId());
 	}
 	
+	
+	
+	
+	
+	
+	@Test
+	void testPago(){
+		
+	}
+	
+	
+	
 	@Test
 	void testPagoTarjeta(){
 		Proxy proxy = Proxy.reemplazarConstructora();
-		proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "456");
-		SesionUsuario nuevasesion = proxy.iniciarSesion("gabrielaloos", "123");
+		IUsuario us= proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "456");
+		SesionUsuario nuevasesion = proxy.iniciarSesion(us.getCorreo(), us.getContrasena());
 		Facade facade = Facade.reemplazarConstructora();
-		PagosPSEConTarjeta p= new PagosPSEConTarjeta();
+		PagosPSE p= new PagosPSEConTarjeta();
+		p.asignarAtributos("100-789-456-2018-5-ruta");
 		IPagos pagoTarjeta = facade.pagoConTarjeta(nuevasesion.getSesion(), p);
 		assertEquals(pagoTarjeta.getIdPasajero(), nuevasesion.getId());
 	}
