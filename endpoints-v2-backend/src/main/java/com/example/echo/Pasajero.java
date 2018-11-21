@@ -5,7 +5,13 @@ public class Pasajero extends Usuario {
 	 public Pasajero() {
 	        super();
 	    }
+	 
+//	 public Pasajero(String correo, String contrasena) {
+//		 super.setCorreo(correo);
+//		super.setContrasena(contrasena);
+//	 }
 
+	 
 	@Override
 	public void crearUsuario(String nombre, String correo, String contrasena, String edad, String id) {
 		super.setNombre(nombre);
@@ -25,21 +31,4 @@ public class Pasajero extends Usuario {
 	 
 	 
 	 
-	 
-
-//	    public void adicionar(String correo, String password, String nombre, String apellido, int edad, String id) {
-//	        super.setCorreo(correo);
-//	        super.setPass(password);
-//	        super.setNombre(nombre);
-//	        super.setApellido(apellido);
-//	        super.setEdad(edad);
-//	        super.setId(id);
-//	    }
-//
-//	    public void modificar(String password, String nombre, String apellido, int edad) {
-//	        super.setPass(password);
-//	        super.setNombre(nombre);
-//	        super.setApellido(apellido);
-//	        super.setEdad(edad);
-//	    }
 }

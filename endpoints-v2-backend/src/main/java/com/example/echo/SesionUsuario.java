@@ -9,8 +9,8 @@ public class SesionUsuario {
 		return sesion;
 	}
 
-	public void setSesion(long session) {
-		this.sesion = session;
+	public void setSesion(long sesion) {
+		this.sesion = sesion;
 	}
 
 	public String getId() {

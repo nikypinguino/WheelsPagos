@@ -12,8 +12,8 @@ public class PagosPSECuentaBancaria extends PagosPSE {
 
 	public void asignarAtributos(String todo) {
 		String atb[] = todo.split("-");
-		numCuenta = atb[0];
-		entidadBancaria = atb[1];
+		this.setNumCuenta(atb[0]);
+		this.setEntidadBancaria(atb[1]);
 		super.asignarAtributos(atb[0]);
 	}
 
@@ -33,8 +33,5 @@ public class PagosPSECuentaBancaria extends PagosPSE {
 		return numCuenta;
 	}
 
-//	private String addnumCuenta() {
-//		return "Numero de tarjeta: " + this.getNumCuenta() + "\n";
-//	}
 
 }

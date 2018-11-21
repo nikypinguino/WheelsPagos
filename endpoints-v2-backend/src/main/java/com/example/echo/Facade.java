@@ -22,8 +22,8 @@ public class Facade {
 	
 	
 	
-	public IPagos pagoEfectivo (long sesion,Pagos pago) {
-		Pagos p= pago;
+	public IPagos pagoEfectivo (long sesion,PagosEfectivo pago) {
+		PagosEfectivo p= pago;
 		for (int i=0; i<sesiones.size();i++) {
 			if (sesion==sesiones.get(i)) {
 				pagos.add(p);
@@ -79,45 +79,5 @@ public class Facade {
 
 	}
 
-		
-
 	
-	
-//	public IPago pagoEfectivo (long session,Pagos pago) {
-//		Pagos pag = (Pagos) pago; 
-//		for (long ses:Sesiones) {
-//			if(session==ses) {
-//				pagos.add(pago);
-//				return pago;
-//			}
-//		}
-//		return null;
-//	}
-//
-//
-//	public ArrayList<IPago> listarPagos(String id,long sesion) {
-//		System.out.println("lista");
-//		ArrayList<IPago> lista = new ArrayList();
-//		for (long ses:Sesiones) {
-//			if(sesion==ses) {
-//				for(IPago pago:pagos) {
-//					if(pago.getUsuarioPaga().equals(id)) {
-//						lista.add(pago);
-//					}
-//				}
-//				return lista;
-//			}
-//		}
-//		return null;
-//	}
-//
-//
-//	public ArrayList<IPago> listarTPagos(long sesion) {
-//		for (long ses:Sesiones) {
-//			if(sesion==ses) {
-//				return pagos;
-//			}
-//		}
-//		return null;
-//	}
 }

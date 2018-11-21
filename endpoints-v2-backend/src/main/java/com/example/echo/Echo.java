@@ -83,7 +83,7 @@ public class Echo {
 	}
 
 	@ApiMethod(name = "PagoEfectivo")
-	public IPagos test(@Named ("session") long sesion,Pagos pago) {
+	public IPagos test(@Named ("session") long sesion,PagosEfectivo pago) {
 		return facade.pagoEfectivo(sesion,pago);
 	}
 	

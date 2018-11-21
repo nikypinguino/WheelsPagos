@@ -18,10 +18,10 @@ public class PagosPSEConTarjeta extends PagosPSE {
 
 	public void asignarAtributos(String todo) {
 		String atb[] = todo.split("-");
-		numTarjeta = atb[0];
-		entidad = atb[1];
-		fechaExpiracion = atb[2];
-		codigoSeguridad = atb[3];
+		this.setNumTarjeta(atb[0]);
+		this.setEntidad(atb[1]);
+		this.setFechaExpiracion(atb[2]);
+		this.setCodigoSeguridad(atb[3]);
 		super.asignarAtributos(atb[0]);
 	}
 
@@ -57,11 +57,4 @@ public class PagosPSEConTarjeta extends PagosPSE {
 		this.codigoSeguridad = codigoSeguridad;
 	}
 
-//	private String addnumTar(){
-//		return "Numero de tarjeta: " + this.getNumTarjeta() + "\n";
-//	}
-//	
-//	public String retornarValores(){
-//		return addnumTar() ;
-//	}
 }

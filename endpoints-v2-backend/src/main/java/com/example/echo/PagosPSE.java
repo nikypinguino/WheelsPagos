@@ -1,7 +1,10 @@
 package com.example.echo;
 
-public class Pagos implements IPagos {
-
+public abstract class PagosPSE implements IPagos {
+	
+	protected IPagos interfaz;
+	String confirmacionPago;
+	
 	String valor;
 	String idConductor;
 	String idPasajero;
@@ -9,15 +12,14 @@ public class Pagos implements IPagos {
 	String hora;
 	String tipoPago;
 
-
 	public void asignarAtributos(String todo) {
 		String atb[] = todo.split("-");
-		this.setValor(atb[0]);
-		this.setIdConductor(atb[1]);
-		this.setIdPasajero(atb[2]);
-		this.setFecha(atb[3]);
-		this.setHora(atb[4]);
-		this.setTipoPago(atb[5]);
+		this.setValor(atb[1]);
+		this.setIdConductor(atb[2]);
+		this.setIdPasajero(atb[3]);
+		this.setFecha(atb[4]);
+		this.setHora(atb[5]);
+		this.setTipoPago(atb[6]);
 	}
 	
 	
@@ -75,14 +77,24 @@ public class Pagos implements IPagos {
 	}
 
 
-
+	
 	public String retornarValores() {
-		return "Valor: " + this.getValor() + 
-				"\n" + " Id Conductor: " + this.getIdConductor() + 
-				"\n" + " Id Pasajero: " + this.getIdPasajero() + 
-				"\n" + " TipoPago: " + this.getTipoPago() ;
+		return interfaz.retornarValores();
 	}
-        
 
+	
+
+
+	public String getConfirmacionPago() {
+		return confirmacionPago;
+	}
+
+	public void setConfirmacionPago(String confirmacionPago) {
+		this.confirmacionPago = confirmacionPago;
+	}
+
+	
+	
+	
 
 }
