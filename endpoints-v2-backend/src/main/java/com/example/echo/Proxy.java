@@ -33,9 +33,7 @@ public class Proxy implements IProxy {
 				aux++;
 				return s;
 				
-			} else {
-				System.out.println("No tiene acceso");
-			}
+			} 
 		}
 		throw new Exception ("No tiene acceso");
 

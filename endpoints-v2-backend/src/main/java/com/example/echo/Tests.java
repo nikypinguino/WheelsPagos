@@ -14,14 +14,14 @@ class Tests {
 //unitarias
 	
 	@Test
-	void crearConductor() {
+	void testCrearConductor() {
 		Proxy proxy = Proxy.reemplazarConstructora();
 		IUsuario us = proxy.crearConductor("nicole", "nickypinguino", "123", "20", "789");
 		assertTrue(us.getCorreo().equals("nickypinguino"));
 	}
 	
 	@Test
-	void crearPasajero() {
+	void testCrearPasajero() {
 		Proxy proxy = Proxy.reemplazarConstructora();
 		IUsuario us = proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "456");
 		assertTrue(us.getCorreo().equals("gabrielaloos"));
@@ -31,9 +31,9 @@ class Tests {
 	void testIniciarSesion() throws Exception {
 
 		Proxy proxy = Proxy.reemplazarConstructora();
-		proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "456");
-		SesionUsuario nuevasesion = proxy.iniciarSesion("gabrielaloos", "123");
-		assertTrue(nuevasesion.getId().equals("456"));
+		IUsuario us= proxy.crearPasajero("gaby", "gabrielaloos", "123", "20", "456");
+		SesionUsuario nuevasesion = proxy.iniciarSesion(us.getCorreo(), us.getContrasena());
+		assertEquals(nuevasesion.getId(), us.getId());
 	}
 	
 	

@@ -12,10 +12,6 @@ public class PagosPSEConTarjeta extends PagosPSE {
 	String fechaExpiracion;
 	String codigoSeguridad;
 
-//	public PagosPSEConTarjeta() {
-//		super();
-//	}
-
 	public void asignarAtributos(String todo) {
 		String atb[] = todo.split("-");
 		this.setNumTarjeta(atb[0]);
