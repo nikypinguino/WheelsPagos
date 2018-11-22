@@ -14,7 +14,7 @@ public class PagosPSECuentaBancaria extends PagosPSE {
 		String atb[] = todo.split("-");
 		this.setNumCuenta(atb[0]);
 		this.setEntidadBancaria(atb[1]);
-		super.asignarAtributos(atb[0]);
+		super.asignarAtributos(todo);
 	}
 
 	public String getEntidadBancaria() {

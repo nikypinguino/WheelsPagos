@@ -18,7 +18,7 @@ public class Proxy implements IProxy {
 	}
 
 	@Override
-	public SesionUsuario iniciarSesion(String correo, String contrasena) {
+	public SesionUsuario iniciarSesion(String correo, String contrasena) throws Exception{
 		
 		long aux= 12345;
 		for (int i = 0; i < usuarios.size(); i++) {
@@ -37,7 +37,7 @@ public class Proxy implements IProxy {
 				System.out.println("No tiene acceso");
 			}
 		}
-		return null;
+		throw new Exception ("No tiene acceso");
 
 	}
 

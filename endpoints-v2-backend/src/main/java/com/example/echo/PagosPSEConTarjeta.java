@@ -22,7 +22,7 @@ public class PagosPSEConTarjeta extends PagosPSE {
 		this.setEntidad(atb[1]);
 		this.setFechaExpiracion(atb[2]);
 		this.setCodigoSeguridad(atb[3]);
-//		super.asignarAtributos(atb[0]);
+		super.asignarAtributos(todo);
 	}
 
 	public void setNumTarjeta(String numTarjeta) {

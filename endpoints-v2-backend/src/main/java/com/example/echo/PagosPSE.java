@@ -14,13 +14,14 @@ public abstract class PagosPSE implements IPagos {
 
 	public void asignarAtributos(String todo) {
 		String atb[] = todo.split("-");
-		this.setValor(atb[1]);
-		this.setIdConductor(atb[2]);
-		this.setIdPasajero(atb[3]);
-		this.setFecha(atb[4]);
-		this.setHora(atb[5]);
-		this.setTipoPago(atb[6]);
+		this.setValor(atb[0]);
+		this.setIdConductor(atb[1]);
+		this.setIdPasajero(atb[2]);
+		this.setFecha(atb[3]);
+		this.setHora(atb[4]);
+		this.setTipoPago(atb[5]);
 	}
+	
 	
 	
 	

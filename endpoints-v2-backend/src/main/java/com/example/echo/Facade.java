@@ -6,7 +6,7 @@ public class Facade {
 
 	private static Facade unicaInstancia;
 	private ArrayList<Long> sesiones = new ArrayList<Long>();
-	private ArrayList<IPagos> pagos = new ArrayList<IPagos>();
+	 ArrayList<IPagos> pagos = new ArrayList<IPagos>();
 	
 	
 	public static Facade reemplazarConstructora() {
@@ -22,7 +22,7 @@ public class Facade {
 	
 	
 	
-	public IPagos pagoEfectivo (long sesion,IPagos pago) {
+	public IPagos pagoEfectivo (long sesion,IPagos pago) throws Exception{
 	IPagos p= pago;
 		for (int i=0; i<sesiones.size();i++) {
 			if (sesion==sesiones.get(i)) {
@@ -31,12 +31,12 @@ public class Facade {
 				return pago;
 			}
 		}
-		return null;
+		throw new Exception ("Pago no realizado");
 	}
 	
 	
-	public IPagos pagoConTarjeta(long sesion,PagosPSE pago) {
-		PagosPSE p= pago;
+	public IPagos pagoConTarjeta(long sesion,IPagos pago) throws Exception{
+		IPagos p= pago;
 		for (int i=0; i<sesiones.size();i++) {
 			if (sesion==sesiones.get(i)) {
 				pagos.add(p);
@@ -44,12 +44,12 @@ public class Facade {
 				return pago;
 			}
 		}
-		return null;
+		throw new Exception ("Pago no realizado");
 		
 	}
 	
-	public IPagos pagoCuentaBancaria(long sesion,PagosPSECuentaBancaria pago) {
-		PagosPSECuentaBancaria p= pago;
+	public IPagos pagoCuentaBancaria(long sesion,IPagos pago) throws Exception{
+		IPagos p= pago;
 		for (int i=0; i<sesiones.size();i++) {
 			if (sesion==sesiones.get(i)) {
 				pagos.add(p);
@@ -57,12 +57,12 @@ public class Facade {
 				return pago;
 			}
 		}
-		return null;
+		throw new Exception ("Pago no realizado");
 		
 	}
 	
 	
-	public ArrayList<IPagos> listarPagos(String id, long sesion) {
+	public ArrayList<IPagos> listarPagos(String id, long sesion) throws Exception{
 		ArrayList<IPagos> lista = new ArrayList<IPagos>();
 		for (int i=0; i <sesiones.size(); i++) {
 			if (sesiones.get(i)==sesion) {
@@ -75,7 +75,7 @@ public class Facade {
 			}
 		}
 		
-		return null;
+		throw new Exception ("Pago no realizado");
 
 	}
 
