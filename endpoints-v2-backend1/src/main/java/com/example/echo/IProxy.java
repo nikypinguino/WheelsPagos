@@ -6,8 +6,8 @@ public interface IProxy {
 
 	public SesionUsuario iniciarSesion(String correo, String contrasena);
 
-	public void crearPasajero(String nombre, String correo, String contrasena, String edad, String id);
+	public IUsuario crearPasajero(String nombre, String correo, String contrasena, String edad, String id);
 	
-	public void crearConductor(String nombre, String correo, String contrasena, String edad, String id);
+	public IUsuario crearConductor(String nombre, String correo, String contrasena, String edad, String id);
 
 }

@@ -13,7 +13,14 @@ class ProxyTest {
 	@Test
 	void crearConductor() {
 		Proxy proxy = Proxy.reemplazarConstructora();
-		IUsuario us = proxy.crearConductor("nicole", "nickypinguino", "123", "20", "789");
+		IUsuario us = proxy.crearConductor("nicole", "nikypinguino", "123", "20", "789");
+		assertTrue(us.getCorreo().equals("nickypinguino"));
+	}
+	
+	@Test
+	void crearPasajero() {
+		Proxy proxy = Proxy.reemplazarConstructora();
+		IUsuario us = proxy.crearConductor("nicole", "nikypinguino", "123", "20", "789");
 		assertTrue(us.getCorreo().equals("nickypinguino"));
 	}
 	

@@ -43,18 +43,21 @@ public class Proxy implements IProxy {
 
 
 	@Override
-	public void crearPasajero(String nombre, String correo, String contrasena, String edad, String id){
+	public IUsuario crearPasajero(String nombre, String correo, String contrasena, String edad, String id){
 		IUsuario usuario = new Pasajero();
 		usuario.crearUsuario(nombre, correo, contrasena, edad, id);
 		usuarios.add(usuario);
+		System.out.println("Usuario creado");
+		return usuario;
 	}
 	
 
 	@Override
-	public void crearConductor(String nombre, String correo, String contrasena, String edad, String id){
+	public IUsuario crearConductor(String nombre, String correo, String contrasena, String edad, String id){
 		IUsuario usuario = new Conductor();
 		usuario.crearUsuario(nombre, correo, contrasena, edad, id);
 		usuarios.add(usuario);
+		return usuario;
 	}
 	
 	
