@@ -74,22 +74,22 @@ public class Echo {
 	}
 
 	@ApiMethod(name = "PagoEfectivo")
-	public IPagos pagoEfectivo(@Named ("session") long sesion,PagosEfectivo pago) throws Exception {
+	public IPagos pagoEfectivo(@Named ("sesion") long sesion,PagosEfectivo pago) throws Exception {
 		return facade.pagoEfectivo(sesion,pago);
 	}
 	
 	@ApiMethod(name = "PagoConTarjeta")
-	public IPagos pagoConTarjeta(@Named ("session") long sesion,PagosPSEConTarjeta  pago) throws Exception {
+	public IPagos pagoConTarjeta(@Named ("sesion") long sesion,PagosPSEConTarjeta  pago) throws Exception {
 		return facade.pagoConTarjeta(sesion,pago);
 	}
 	
 	@ApiMethod(name = "PagoConCuentaBancaria")
-	public IPagos pagoConCuentaBancaria(@Named ("session") long sesion,PagosPSECuentaBancaria pago) throws Exception {
+	public IPagos pagoConCuentaBancaria(@Named ("sesion") long sesion,PagosPSECuentaBancaria pago) throws Exception {
 		return facade.pagoCuentaBancaria(sesion, pago);
 	}
 	
 	@ApiMethod(name = "ListarPagos")
-	public ArrayList<IPagos> listarPagos(@Named ("session") long sesion,@Named ("ID") String id ) throws Exception {
+	public ArrayList<IPagos> listarPagos(@Named ("sesion") long sesion,@Named ("ID") String id ) throws Exception {
 		return facade.listarPagos(id,sesion);
 	}
 

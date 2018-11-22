@@ -96,7 +96,7 @@ class Tests {
 		p.asignarAtributos("1000-789-456-2018-5pm-multa-pesos");
 		facade.pagoEfectivo(nuevasesion.getSesion(), p);	
 		ArrayList<IPagos> lista= facade.listarPagos(nuevasesion.getId(), nuevasesion.getSesion());
-		assertTrue(lista.get(1).getIdPasajero().equals(us.getId()));
+		assertTrue(lista.get(1).getIdPasajero().equals(nuevasesion.getId()));
 				
 	}
 	
