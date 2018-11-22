@@ -80,11 +80,8 @@ class ProxyTest {
 		assertEquals(pagos, pagoTarjeta.getIdPasajero());
 				
 	}
-
 	
-	
-	
-	
+	//de integracion inicio sesión con crear pasajero 
 	
 	
 	
